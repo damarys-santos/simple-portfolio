@@ -1,0 +1,53 @@
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(41, 8, 43, 0.7);
+  color: white;
+  padding: 1rem;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: background-color 1s ease;
+  z-index: 100;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  background-image: url("../assets/primeira_tentativa.jpeg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: background-color 1s ease;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(41, 8, 43, 0.7);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
