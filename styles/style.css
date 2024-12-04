@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #a690b4;
+  color: #634081;
+  padding: 20px;
+}
+
+header {
+  background: #634081;
+  color: #a690b4;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2.5em;
+  color: #91a37a;
+}
+
+header h2 {
+  font-size: 1.5em;
+  font-weight: 300;
+  color: #91a37a;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin-top: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #ecd2cf;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  margin-bottom: 10px;
+  font-size: 2em;
+  color: #333;
+}
+
+section p {
+  margin-bottom: 10px;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+article h3 {
+  margin-bottom: 5px;
+  font-size: 1.5em;
+  color: #555;
+}
+
+article p {
+  margin-bottom: 5px;
+}
+
+article a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+article a:hover {
+  text-decoration: underline;
+}
+
+aside {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+aside h2 {
+  margin-bottom: 10px;
+  font-size: 2em;
+  color: #333;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside ul li {
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+footer {
+  margin-top: 20px;
+  padding: 20px;
+  background: #3b4778;
+  color: #91a37a;
+  text-align: center;
+  border-radius: 8px;
+}
+
+footer h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+footer p {
+  margin-bottom: 5px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+aside ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+aside ul li i {
+  margin-right: 10px;
+  color: #333;
+}
