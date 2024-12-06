@@ -4,8 +4,18 @@
   box-sizing: border-box;
 }
 
+a {
+  color: #f6cbb6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #d46a79;
+}
+
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Times New Roman", Times, serif;
   line-height: 1.6;
   background-color: #78201b;
   color: #f6cbb6;
@@ -17,7 +27,7 @@ header {
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  border-radius: 8px
+  border-radius: 8px;
 }
 
 header h1 {
