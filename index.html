@@ -3,28 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dâmarys's portfolio</title>
+    <title>Dâmarys's Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <header>
-      <h1>DÂMARYS SANTOS</h1>
-      <h2>web developer</h2>
+      <h1>Dâmarys Santos</h1>
+      <h2>Web Developer</h2>
+      <nav>
+        <ul>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#skills">Habilidades</a></li>
+          <li><a href="#projects">Projetos</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
     </header>
-    <nav></nav>
-    <div>
-      <div>
-        <h1 class="projects">Projects</h1>
-        <h2>
+    <main>
+      <section id="about">
+        <h2>Sobre Mim</h2>
+        <aside>
+          <p>Desenvolvedora Full Stack em formação.</p>
+          <p>
+            Tive experiências de estágio com suporte técnico voltado ao
+            atendimento ao cliente e docência para inclusão sociodigital.
+          </p>
+          <p>
+            Acredito muito no poder do conhecimento para transformar vidas e
+            busco sempre fazer tudo na minha vida com criatividade e propósito.
+          </p>
+        </aside>
+      </section>
+      <section id="skills">
+        <h2>Habilidades</h2>
+        <aside>
           <ul>
-            <li><a href="https://drip-store-phi.vercel.app/"></a></li>
-            <li><a href="https://calculicious.vercel.app/"></a></li>
-            <li><a href="https://shopifylanding.vercel.app/"></a></li>
-            <li><a href="https://switchtheme.vercel.app/"></a></li>
+            <li><i class="fab fa-html5"></i> HTML</li>
+            <li><i class="fab fa-css3-alt"></i> CSS</li>
+            <li><i class="fab fa-js"></i> JavaScript</li>
+            <li><i class="fab fa-react"></i> React</li>
+            <li><i class="fab fa-node-js"></i> Node.js</li>
           </ul>
-        </h2>
-      </div>
-    </div>
-    <footer>Powered by <a href="mailto:damarysdev@gmail.com"></a></footer>
+        </aside>
+      </section>
+      <section id="projects">
+        <h2>Projetos</h2>
+        <aside>
+          <article class="project-card">
+            <h3>Drip Store</h3>
+            <iframe
+              style="border-radius: 12px"
+              src="https://drip-store-phi.vercel.app/"
+              width="100%"
+              height="352"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            <p>
+              Fui responsável pelo carrosel desse E-commerce. Trabalho
+              avaliativo que garantiu a aprovação da minha equipe na GT01 do
+              Geração Tech.
+            </p>
+            <a href="https://github.com/HermesWebDeveloper/drip_store"
+              >GitHub</a
+            >
+          </article>
+        </aside>
+        <aside>
+          <article class="project-card">
+            <h3>Calculadora Simples</h3>
+            <iframe
+              style="border-radius: 12px"
+              src="https://calculicious.vercel.app/"
+              width="100%"
+              height="650"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            <p>
+              Calculadora simples, apenas para testar responsividade e treinar
+              lógica em js
+            </p>
+            <a href="https://github.com/idamarys/simple-calculator">GitHub</a>
+          </article>
+        </aside>
+        <aside>
+          <article class="project-card">
+            <h3>Shopify</h3>
+            <iframe
+              style="border-radius: 12px"
+              src="https://shopifylanding.vercel.app/"
+              width="100%"
+              height="352"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            <p>Minha primeira landing-page</p>
+            <a
+              href="https://github.com/idamarys/Geracao-Tech/blob/master/semana-02/landing-pages/index.html"
+              >GitHub</a
+            >
+          </article>
+        </aside>
+        <aside>
+          <article class="project-card">
+            <h3>Website simples</h3>
+            <iframe
+              style="border-radius: 12px"
+              src="https://switchtheme.vercel.app/"
+              width="100%"
+              height="352"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            <p>Primeiro site feito para aprender o básico de html/css/js</p>
+            <a href="https://github.com/idamarys/simple-website">GitHub</a>
+          </article>
+        </aside>
+      </section>
+    </main>
+    <footer id="contact">
+      <h2>Contato</h2>
+      <p>
+        Email: <a href="mailto:damarysdev@gmail.com">damarysdev@gmail.com</a>
+      </p>
+      <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/damarys-santos">Dâmarys Santos</a>
+      </p>
+      <p>
+        GitHub: 
+        <a href="https://github.com/idamarys">idamarys</a>
+      </p>
+    </footer>
   </body>
 </html>
