@@ -5,7 +5,7 @@
 }
 
 a {
-  color: #f6cbb6;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
 }
@@ -18,13 +18,13 @@ body {
   font-family: "Times New Roman", Times, serif;
   line-height: 1.6;
   background-image: url('../assets/pavimento-mosaico.jpeg');
-  color: #f6cbb6;
+  color: #ffffff;
   padding: 20px;
 }
 
 header {
-  background: #472950;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
   padding: 20px 0;
   text-align: center;
   border-radius: 8px;
@@ -112,7 +112,7 @@ article a:hover {
 aside {
   margin-top: 20px;
   padding: 20px;
-  background: #472950;
+  background: #000000;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -174,7 +174,7 @@ aside ul li i {
 footer {
   margin-top: 20px;
   padding: 20px;
-  background-image: url('../assets/star.jpeg');
+  background-color: #000000;
   color: #ffffff;
   text-align: center;
   border-radius: 8px;
@@ -191,7 +191,7 @@ footer p {
 }
 
 footer a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
 }
@@ -210,4 +210,203 @@ aside ul li {
 aside ul li i {
   margin-right: 10px;
   color: #ffffff;
+}
+
+/* Projects Masonry Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.project-card {
+  background: #000000;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.project-card iframe {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card p {
+  margin-bottom: 15px;
+  color: #e0e0e0;
+  line-height: 1.6;
+  text-align: left;
+  font-size: 0.95em;
+}
+
+.project-card a {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85em;
+}
+
+.project-card a:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+/* Specific heights for masonry effect */
+.project-card:nth-child(1) iframe {
+  height: 280px;
+}
+
+.project-card:nth-child(2) iframe {
+  height: 400px;
+}
+
+.project-card:nth-child(3) iframe {
+  height: 260px;
+}
+
+.project-card:nth-child(4) iframe {
+  height: 280px;
+}
+
+/* Responsive Design for Projects */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .project-card {
+    padding: 20px;
+  }
+  
+  .project-card h3 {
+    font-size: 1.3em;
+  }
+  
+  /* Uniform iframe heights on mobile for better consistency */
+  .project-card iframe {
+    height: 300px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .project-card iframe {
+    height: 300px !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    max-width: 1400px;
+    margin: 20px auto 0;
+  }
+}
+
+/* Enhanced section styling for projects */
+#projects {
+  background-image: url('../assets/animal-print.png');
+  padding: 40px 20px;
+  position: relative;
+}
+
+#projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+#projects > * {
+  position: relative;
+  z-index: 1;
+}
+
+#projects h2 {
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Improved project card animations and spacing */
+.projects-grid {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation for project cards */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+
+.project-card {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Enhanced hover effects */
+.project-card:hover .project-card h3 {
+  color: #667eea;
+  transition: color 0.3s ease;
+}
+
+/* Improved spacing and typography */
+.project-card p {
+  text-align: justify;
+  hyphens: auto;
 }
