@@ -212,13 +212,25 @@ aside ul li i {
   color: #ffffff;
 }
 
-/* Projects Masonry Layout */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  padding: 20px;
-  margin-top: 20px;
+/* Carousel Styles for Projects Section */
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 60px; /* Aumentar padding lateral para acomodar botões */
+  overflow: visible; /* Permitir que botões sejam visíveis */
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  border-radius: 16px;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
 }
 
 .project-card {
@@ -226,9 +238,17 @@ aside ul li i {
   border-radius: 16px;
   padding: 25px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 2px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 630px; /* Altura fixa e generosa para todos os cards */
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Largura será controlada pelo JavaScript */
+  min-width: unset; /* Remove min-width conflitante */
+  max-width: unset; /* Remove max-width conflitante */
+  box-sizing: border-box; /* Incluir padding e border no cálculo da altura */
 }
 
 .project-card:hover {
@@ -238,28 +258,27 @@ aside ul li i {
 }
 
 .project-card h3 {
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Espaçamento maior para consistência */
   font-size: 1.5em;
   color: #ffffff;
   text-align: center;
   font-weight: 700;
   letter-spacing: 0.5px;
-}
-
-.project-card iframe {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin-bottom: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0; /* Não encolher o título */
+  height: auto; /* Altura automática mas consistente */
+  line-height: 1.3; /* Line height consistente */
 }
 
 .project-card p {
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Espaçamento maior para consistência */
   color: #e0e0e0;
   line-height: 1.6;
-  text-align: left;
+  text-align: justify;
   font-size: 0.95em;
+  flex-grow: 1; /* Ocupar espaço restante */
+  overflow: hidden; /* Evitar overflow de texto */
+  hyphens: auto;
+  min-height: 80px; /* Altura mínima para consistência */
 }
 
 .project-card a {
@@ -274,7 +293,9 @@ aside ul li i {
   border-radius: 50%;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
-  margin-top: 5px;
+  margin-top: auto;
+  align-self: center; /* Centralizar horizontalmente */
+  flex-shrink: 0; /* Não encolher o botão */
 }
 
 .project-card a:hover {
@@ -288,61 +309,181 @@ aside ul li i {
   color: #ffffff;
 }
 
-/* Specific heights for masonry effect */
-.project-card:nth-child(1) iframe {
-  height: 280px;
+/* Carousel Navigation Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #FFA500;
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 }
 
-.project-card:nth-child(2) iframe {
-  height: 400px;
+.carousel-btn:hover {
+  background: #FFA500;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 16px rgba(255, 165, 0, 0.4);
 }
 
-.project-card:nth-child(3) iframe {
-  height: 260px;
+.carousel-btn-prev {
+  left: 10px; /* Posicionar dentro do container */
 }
 
-.project-card:nth-child(4) iframe {
-  height: 280px;
+.carousel-btn-next {
+  right: 10px; /* Posicionar dentro do container */
 }
 
-/* Responsive Design for Projects */
+.carousel-btn i {
+  font-size: 1.2em;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #FFA500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active,
+.indicator:hover {
+  background: #FFA500;
+  transform: scale(1.2);
+}
+
+/* Responsive Design for Carousel */
 @media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 15px;
+  .carousel-container {
+    padding: 15px 30px; /* Reduzir padding lateral */
+  }
+  
+  .carousel-track {
+    gap: 15px;
   }
   
   .project-card {
     padding: 20px;
+    height: 580px; /* Altura proporcional para mobile */
   }
   
   .project-card h3 {
     font-size: 1.3em;
+    margin-bottom: 15px;
   }
   
-  /* Uniform iframe heights on mobile for better consistency */
   .project-card iframe {
-    height: 300px !important;
+    height: 310px; /* Altura proporcional para mobile */
+  }
+  
+  .project-card p {
+    margin-bottom: 15px;
+    min-height: 60px;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-btn-prev {
+    left: 5px;
+  }
+  
+  .carousel-btn-next {
+    right: 5px;
+  }
+  
+  .carousel-btn i {
+    font-size: 1em;
+  }
+  
+  .carousel-indicators {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    padding: 10px 20px; /* Padding ainda menor para telas muito pequenas */
+  }
+  
+  .carousel-btn-prev {
+    left: 2px;
+  }
+  
+  .carousel-btn-next {
+    right: 2px;
+  }
+  
+  .project-card {
+    height: 530px; /* Altura proporcional */
+    padding: 15px;
+  }
+  
+  .project-card iframe {
+    height: 280px; /* Altura proporcional */
+  }
+  
+  .project-card p {
+    min-height: 50px;
+  }
+  
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .carousel-btn i {
+    font-size: 0.9em;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+  .carousel-container {
+    padding: 20px 50px;
+  }
+  
+  .project-card {
+    height: 610px; /* Altura proporcional para tablet */
   }
   
   .project-card iframe {
-    height: 300px !important;
+    height: 330px; /* Altura proporcional para tablet */
   }
 }
 
 @media (min-width: 1025px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  .carousel-container {
+    padding: 20px 60px;
     max-width: 1400px;
-    margin: 20px auto 0;
+  }
+  
+  .project-card {
+    height: 630px; /* Altura final para desktop */
+  }
+  
+  .project-card iframe {
+    height: 340px; /* Altura final para desktop */
   }
 }
 
@@ -378,8 +519,8 @@ aside ul li i {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Improved project card animations and spacing */
-.projects-grid {
+/* Carousel entrance animation */
+.carousel-container {
   animation: fadeInUp 0.6s ease-out;
 }
 
@@ -394,18 +535,8 @@ aside ul li i {
   }
 }
 
-/* Staggered animation for project cards */
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-
-.project-card {
-  animation: fadeInUp 0.6s ease-out both;
-}
-
-/* Enhanced hover effects */
-.project-card:hover .project-card h3 {
+/* Enhanced hover effects for carousel */
+.project-card:hover h3 {
   color: #FFA500;
   transition: color 0.3s ease;
 }
