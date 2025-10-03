@@ -212,6 +212,141 @@ aside ul li i {
   color: #ffffff;
 }
 
+/* Companies Carousel Section */
+#companies {
+  background-image: url('../assets/animal-print.png');
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+#companies::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+#companies > * {
+  position: relative;
+  z-index: 1;
+}
+
+#companies h2 {
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.companies-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.companies-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: fit-content;
+  transition: transform 0.3s ease;
+}
+
+.company-logo {
+  flex-shrink: 0;
+  width: 180px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.company-logo:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+
+.company-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Responsive Design for Companies */
+.companies-carousel:hover .companies-track {
+  transition: transform 0.3s ease;
+}
+
+/* Responsive Design for Companies */
+@media (max-width: 768px) {
+  #companies h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  
+  .companies-track {
+    gap: 40px;
+  }
+  
+  .company-logo {
+    width: 140px;
+    height: 90px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #companies {
+    padding: 30px 15px;
+  }
+  
+  #companies h2 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+  
+  .companies-track {
+    gap: 30px;
+  }
+  
+  .company-logo {
+    width: 120px;
+    height: 80px;
+    padding: 12px;
+  }
+}
+
 /* Carousel Styles for Projects Section */
 .carousel-container {
   position: relative;

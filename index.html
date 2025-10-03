@@ -22,6 +22,7 @@
         <ul>
           <li><a href="#about">Sobre</a></li>
           <li><a href="#skills">Habilidades</a></li>
+          <li><a href="#companies">Empresas</a></li>
           <li><a href="#projects">Projetos</a></li>
           <li><a href="#contact">Contato</a></li>
         </ul>
@@ -126,6 +127,24 @@
           </div>
         </aside>
       </section>
+      
+      <section id="companies">
+        <h2>EMPRESAS QUE JÁ APOSTARAM EM MIM</h2>
+        <div class="companies-carousel">
+          <div class="companies-track" id="companies-track">
+            <a href="https://www.centec.org.br/" target="_blank" rel="noopener noreferrer" class="company-logo">
+              <img src="./assets/logo-centec.jpg" alt="Centec">
+            </a>
+            <a href="https://www.gruponew.com/" target="_blank" rel="noopener noreferrer" class="company-logo">
+              <img src="./assets/logo-gruponew.jpeg" alt="Grupo New">
+            </a>
+            <a href="https://newavetele.com/" target="_blank" rel="noopener noreferrer" class="company-logo">
+              <img src="./assets/logo-newave.png" alt="Newave">
+            </a>
+          </div>
+        </div>
+      </section>
+      
       <section id="projects">
         <h2>PROJETOS</h2>
         <div class="carousel-container">
@@ -288,6 +307,106 @@
     </footer>
 
     <script>
+      class CompaniesCarousel {
+        constructor() {
+          this.track = document.getElementById('companies-track');
+          this.originalLogos = Array.from(this.track.children);
+          this.logoWidth = 0;
+          this.gap = 60;
+          this.animationId = null;
+          this.currentTranslate = 0;
+          this.speed = 0.5;
+          this.isPaused = false;
+          
+          this.init();
+        }
+        
+        init() {
+          this.calculateDimensions();
+          this.cloneLogos();
+          this.bindEvents();
+          this.startAnimation();
+          
+          window.addEventListener('resize', () => {
+            this.handleResize();
+          });
+        }
+        
+        calculateDimensions() {
+          const logoElement = this.originalLogos[0];
+          if (logoElement) {
+            const computedStyle = window.getComputedStyle(logoElement);
+            this.logoWidth = parseInt(computedStyle.width);
+            
+            if (window.innerWidth <= 480) {
+              this.gap = 30;
+            } else if (window.innerWidth <= 768) {
+              this.gap = 40;
+            } else {
+              this.gap = 60;
+            }
+          }
+        }
+        
+        cloneLogos() {
+          const clones = this.track.querySelectorAll('.company-logo-clone');
+          clones.forEach(clone => clone.remove());
+          const containerWidth = this.track.parentElement.offsetWidth;
+          const logoTotalWidth = this.logoWidth + this.gap;
+          const logosNeeded = Math.ceil(containerWidth / logoTotalWidth) + this.originalLogos.length + 2;
+
+          for (let i = 0; i < logosNeeded; i++) {
+            const originalIndex = i % this.originalLogos.length;
+            const clone = this.originalLogos[originalIndex].cloneNode(true);
+            clone.classList.add('company-logo-clone');
+            this.track.appendChild(clone);
+          }
+        }
+        
+        bindEvents() {
+          const carousel = document.querySelector('.companies-carousel');
+          
+          carousel.addEventListener('mouseenter', () => {
+            this.isPaused = true;
+          });
+          
+          carousel.addEventListener('mouseleave', () => {
+            this.isPaused = false;
+          });
+        }
+        
+        startAnimation() {
+          const animate = () => {
+            if (!this.isPaused) {
+              this.currentTranslate -= this.speed;
+              
+              const resetPoint = -(this.logoWidth + this.gap) * this.originalLogos.length;
+              if (this.currentTranslate <= resetPoint) {
+                this.currentTranslate = 0;
+              }
+              
+              this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+            }
+            
+            this.animationId = requestAnimationFrame(animate);
+          };
+          
+          animate();
+        }
+        
+        handleResize() {
+          this.calculateDimensions();
+          this.cloneLogos();
+          this.currentTranslate = 0;
+        }
+        
+        destroy() {
+          if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+          }
+        }
+      }
+
       class ProjectCarousel {
         constructor() {
           this.carousel = document.querySelector('.carousel-track');
@@ -421,6 +540,7 @@
       }
       
       document.addEventListener('DOMContentLoaded', () => {
+        new CompaniesCarousel();
         new ProjectCarousel();
       });
     </script>
